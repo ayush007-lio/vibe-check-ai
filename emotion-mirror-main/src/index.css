@@ -1,0 +1,310 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Base design tokens */
+    --font-display: 'Space Grotesk', sans-serif;
+    --font-body: 'Outfit', sans-serif;
+    
+    /* Default (Neutral) theme */
+    --background: 220 15% 95%;
+    --foreground: 220 20% 15%;
+    --card: 0 0% 100%;
+    --card-foreground: 220 20% 15%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 20% 15%;
+    --primary: 220 60% 50%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 220 15% 90%;
+    --secondary-foreground: 220 20% 20%;
+    --muted: 220 15% 92%;
+    --muted-foreground: 220 10% 45%;
+    --accent: 220 60% 95%;
+    --accent-foreground: 220 60% 40%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 220 15% 88%;
+    --input: 220 15% 88%;
+    --ring: 220 60% 50%;
+    --radius: 1rem;
+
+    /* Emotion gradient backgrounds */
+    --emotion-gradient: linear-gradient(135deg, hsl(220 15% 95%) 0%, hsl(220 20% 90%) 100%);
+    
+    /* Glassmorphism */
+    --glass-bg: hsla(0, 0%, 100%, 0.7);
+    --glass-border: hsla(0, 0%, 100%, 0.3);
+    --glass-shadow: 0 8px 32px hsla(220, 20%, 15%, 0.1);
+    
+    /* Animation tokens */
+    --transition-theme: 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-fast: 0.2s ease-out;
+    --transition-smooth: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+
+    /* Sidebar tokens */
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  /* Emotion Theme Classes */
+  .emotion-happy {
+    --background: 45 95% 92%;
+    --foreground: 35 80% 20%;
+    --primary: 45 100% 50%;
+    --primary-foreground: 35 80% 15%;
+    --card: 45 80% 98%;
+    --card-foreground: 35 80% 20%;
+    --muted: 45 60% 90%;
+    --muted-foreground: 35 50% 35%;
+    --accent: 35 90% 55%;
+    --accent-foreground: 0 0% 100%;
+    --emotion-gradient: linear-gradient(135deg, hsl(45 100% 70%) 0%, hsl(35 95% 60%) 50%, hsl(25 90% 55%) 100%);
+  }
+
+  .emotion-sad {
+    --background: 210 40% 92%;
+    --foreground: 210 30% 20%;
+    --primary: 210 60% 55%;
+    --primary-foreground: 0 0% 100%;
+    --card: 210 30% 97%;
+    --card-foreground: 210 30% 20%;
+    --muted: 210 30% 88%;
+    --muted-foreground: 210 20% 45%;
+    --accent: 200 50% 50%;
+    --accent-foreground: 0 0% 100%;
+    --emotion-gradient: linear-gradient(135deg, hsl(210 50% 75%) 0%, hsl(220 40% 65%) 50%, hsl(200 35% 55%) 100%);
+  }
+
+  .emotion-angry {
+    --background: 0 70% 92%;
+    --foreground: 0 60% 20%;
+    --primary: 0 85% 55%;
+    --primary-foreground: 0 0% 100%;
+    --card: 0 50% 97%;
+    --card-foreground: 0 60% 20%;
+    --muted: 0 50% 88%;
+    --muted-foreground: 0 40% 40%;
+    --accent: 15 90% 55%;
+    --accent-foreground: 0 0% 100%;
+    --emotion-gradient: linear-gradient(135deg, hsl(0 80% 60%) 0%, hsl(15 85% 55%) 50%, hsl(25 80% 50%) 100%);
+  }
+
+  .emotion-surprised {
+    --background: 280 50% 94%;
+    --foreground: 280 40% 20%;
+    --primary: 280 70% 60%;
+    --primary-foreground: 0 0% 100%;
+    --card: 280 40% 98%;
+    --card-foreground: 280 40% 20%;
+    --muted: 280 40% 90%;
+    --muted-foreground: 280 30% 45%;
+    --accent: 320 70% 60%;
+    --accent-foreground: 0 0% 100%;
+    --emotion-gradient: linear-gradient(135deg, hsl(280 70% 70%) 0%, hsl(300 65% 65%) 50%, hsl(320 70% 60%) 100%);
+  }
+
+  .emotion-fear {
+    --background: 250 40% 25%;
+    --foreground: 250 20% 90%;
+    --primary: 250 60% 55%;
+    --primary-foreground: 0 0% 100%;
+    --card: 250 35% 18%;
+    --card-foreground: 250 20% 90%;
+    --muted: 250 30% 30%;
+    --muted-foreground: 250 20% 70%;
+    --accent: 270 50% 55%;
+    --accent-foreground: 0 0% 100%;
+    --glass-bg: hsla(250, 40%, 15%, 0.7);
+    --glass-border: hsla(250, 30%, 40%, 0.3);
+    --emotion-gradient: linear-gradient(135deg, hsl(250 50% 25%) 0%, hsl(260 45% 20%) 50%, hsl(270 40% 18%) 100%);
+  }
+
+  .emotion-disgust {
+    --background: 150 35% 90%;
+    --foreground: 150 40% 20%;
+    --primary: 150 50% 45%;
+    --primary-foreground: 0 0% 100%;
+    --card: 150 30% 96%;
+    --card-foreground: 150 40% 20%;
+    --muted: 150 30% 85%;
+    --muted-foreground: 150 25% 40%;
+    --accent: 170 45% 45%;
+    --accent-foreground: 0 0% 100%;
+    --emotion-gradient: linear-gradient(135deg, hsl(150 45% 55%) 0%, hsl(160 40% 50%) 50%, hsl(170 35% 45%) 100%);
+  }
+
+  .emotion-neutral {
+    --background: 220 15% 95%;
+    --foreground: 220 20% 15%;
+    --primary: 220 60% 50%;
+    --primary-foreground: 0 0% 100%;
+    --card: 0 0% 100%;
+    --card-foreground: 220 20% 15%;
+    --muted: 220 15% 92%;
+    --muted-foreground: 220 10% 45%;
+    --accent: 220 60% 95%;
+    --accent-foreground: 220 60% 40%;
+    --emotion-gradient: linear-gradient(135deg, hsl(220 15% 98%) 0%, hsl(220 20% 92%) 50%, hsl(220 15% 88%) 100%);
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-body antialiased;
+    background: var(--emotion-gradient);
+    transition: background var(--transition-theme), color var(--transition-theme);
+    min-height: 100vh;
+  }
+}
+
+@layer components {
+  .glass-card {
+    background: var(--glass-bg);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid var(--glass-border);
+    box-shadow: var(--glass-shadow);
+    transition: all var(--transition-theme);
+  }
+
+  .emotion-text {
+    @apply text-lg md:text-xl font-medium text-center;
+    font-family: var(--font-display);
+    transition: color var(--transition-theme);
+  }
+
+  .loading-spinner {
+    width: 60px;
+    height: 60px;
+    border: 4px solid hsl(var(--muted));
+    border-top-color: hsl(var(--primary));
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+  }
+
+  .floating-emoji {
+    position: fixed;
+    font-size: 2rem;
+    pointer-events: none;
+    animation: float-up 4s ease-out forwards;
+    opacity: 0;
+    z-index: 50;
+  }
+
+  .pulse-glow {
+    animation: pulse-glow 2s ease-in-out infinite;
+  }
+}
+
+@layer utilities {
+  .font-display {
+    font-family: var(--font-display);
+  }
+
+  .font-body {
+    font-family: var(--font-body);
+  }
+
+  .transition-theme {
+    transition: all var(--transition-theme);
+  }
+
+  .transition-fast {
+    transition: all var(--transition-fast);
+  }
+
+  .transition-smooth {
+    transition: all var(--transition-smooth);
+  }
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes float-up {
+  0% {
+    opacity: 0;
+    transform: translateY(100vh) scale(0.5) rotate(0deg);
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-20vh) scale(1.2) rotate(360deg);
+  }
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow: 0 0 20px hsla(var(--primary), 0.3);
+  }
+  50% {
+    box-shadow: 0 0 40px hsla(var(--primary), 0.6);
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fade-in 0.5s ease-out forwards;
+}
